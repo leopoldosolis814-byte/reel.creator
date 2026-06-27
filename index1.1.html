@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Proyectos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="topBar">
+        <button id="menuToggle" class="icon-btn">☰</button>
+        <h1>📁 Gestor de Proyectos</h1>
+        <div id="userActions">
+            <button id="saveAllBtn" class="action-btn">💾 Guardar Todo</button>
+            <button id="exportBtn" class="action-btn">📤 Exportar</button>
+        </div>
+    </header>
+
+    <div id="mainContainer">
+        <nav id="sideMenu" class="collapsed">
+            <ul>
+                <li data-section="dashboard" class="active">🏠 Inicio</li>
+                <li data-section="projects">📂 Proyectos</li>
+                <li data-section="content">📝 Contenido</li>
+                <li data-section="album">🖼️ Álbum</li>
+                <li data-section="config">⚙️ Configuración</li>
+                <li data-section="help">❓ Ayuda</li>
+            </ul>
+            <div id="webTools">
+                <h4>🌐 Herramientas Web</h4>
+                <button class="web-btn" data-url="https://google.com">Google</button>
+                <button class="web-btn" data-url="https://chat.openai.com">ChatGPT</button>
+                <button class="web-btn" data-url="https://gemini.google.com">Gemini</button>
+                <button class="web-btn" data-url="https://claude.ai">Claude</button>
+                <button class="web-btn" data-url="https://ideogram.ai">Ideogram</button>
+                <button class="web-btn" data-url="https://leonardo.ai">Leonardo</button>
+                <button class="web-btn" data-url="https://runwayml.com">Runway</button>
+                <button class="web-btn" data-url="https://canva.com">Canva</button>
+                <button class="web-btn" data-url="https://instagram.com">Instagram</button>
+            </div>
+        </nav>
+
+        <main id="contentArea">
+            <section id="dashboardSection" class="content-section active">
+                <h2>📊 Dashboard</h2>
+                <div id="stats">
+                    <div class="stat-card"><h3>Proyectos</h3><p id="projectCount">0</p></div>
+                    <div class="stat-card"><h3>Imágenes</h3><p id="imageCount">0</p></div>
+                    <div class="stat-card"><h3>Videos</h3><p id="videoCount">0</p></div>
+                </div>
+                <div id="recentProjects"><h3>Proyectos Recientes</h3><ul id="recentList"></ul></div>
+            </section>
+
+            <section id="projectsSection" class="content-section">
+                <div id="projectsHeader">
+                    <h2>📂 Proyectos</h2>
+                    <button id="newProjectBtn" class="primary-btn">➕ Nuevo Proyecto</button>
+                </div>
+                <div id="projectsList"></div>
+            </section>
+
+            <section id="contentSection" class="content-section">
+                <h2>📝 Editor de Contenido</h2>
+                <div id="contentEditor">
+                    <select id="projectSelector"></select>
+                    <textarea id="ideaInput" placeholder="Idea..."></textarea>
+                    <textarea id="scriptInput" placeholder="Guión..."></textarea>
+                    <textarea id="promptInput" placeholder="Prompt..."></textarea>
+                    <textarea id="copyInput" placeholder="Copy..."></textarea>
+                    <textarea id="hashtagsInput" placeholder="Hashtags..."></textarea>
+                    <textarea id="commentsInput" placeholder="Comentarios..."></textarea>
+                    <button id="saveContentBtn" class="primary-btn">💾 Guardar Contenido</button>
+                </div>
+            </section>
+
+            <section id="albumSection" class="content-section">
+                <h2>🖼️ Álbum</h2>
+                <div id="albumControls">
+                    <button id="addImageBtn" class="action-btn">📷 Agregar Imagen</button>
+                    <button id="addVideoBtn" class="action-btn">🎬 Agregar Video</button>
+                </div>
+                <div id="albumGrid"></div>
+            </section>
+
+            <section id="configSection" class="content-section">
+                <h2>⚙️ Configuración</h2>
+                <div id="configOptions">
+                    <label><input type="checkbox" id="autoSave"> Auto Guardar</label>
+                    <label><input type="checkbox" id="darkMode"> Modo Oscuro</label>
+                    <button id="clearDataBtn" class="danger-btn">🗑️ Limpiar Datos</button>
+                </div>
+            </section>
+
+            <section id="helpSection" class="content-section">
+                <h2>❓ Ayuda</h2>
+                <div id="helpContent">
+                    <h3>Guía Rápida</h3>
+                    <ul>
+                        <li><strong>Nuevo Proyecto:</strong> Haz clic en "Nuevo Proyecto"</li>
+                        <li><strong>Agregar Contenido:</strong> Selecciona un proyecto y escribe</li>
+                        <li><strong>Álbum:</strong> Agrega imágenes y videos</li>
+                        <li><strong>Exportar:</strong> Usa el botón "Exportar"</li>
+                        <li><strong>Guardar:</strong> Presiona "Guardar Todo"</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="projectModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Nuevo Proyecto</h3>
+            <input type="text" id="projectName" placeholder="Nombre del proyecto">
+            <input type="text" id="projectClient" placeholder="Cliente">
+            <input type="date" id="projectDate">
+            <select id="projectStatus">
+                <option value="activo">Activo</option>
+                <option value="pausado">Pausado</option>
+                <option value="completado">Completado</option>
+            </select>
+            <div id="modalActions">
+                <button id="saveProjectBtn" class="primary-btn">Guardar</button>
+                <button id="closeModalBtn" class="secondary-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
