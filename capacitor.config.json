@@ -1,8 +1,0 @@
-{
-  "appId": "com.gestor.proyectos",
-  "appName": "Gestor Proyectos",
-  "webDir": "./",
-  "server": {
-    "androidScheme": "https"
-  }
-}
